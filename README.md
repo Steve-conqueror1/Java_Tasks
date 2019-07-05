@@ -16,3 +16,5 @@
 ####  player_move_to VARCHAR2(50) NOT NULL,
 ####  captured_piece VARCHAR2(50)
 #### );
+
+# ojdbc6 driver требуется !!!
