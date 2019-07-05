@@ -102,6 +102,13 @@ public class Board {
                 }
 
                 if ((currentPiece(pieces[x][y], x, y).isCorrectMove(x1, y1)) && (correctPiecesToPlay(pieces[x][y], currentPlayer))) {
+
+                    if (pieces[x1][y1] != 0 && toLowerCase(pieces[x1][y1]) == PieceType.getPiece(toLowerCase(pieces[x1][y1]))){
+                        capturedPiece = PieceType.getPieceByName(toLowerCase(pieces[x1][y1]));
+                    }else {
+                        capturedPiece = null;
+                    }
+
                     ChessGameRepository.dbAccess(count+1, currentPlayer, PieceType.getPieceByName(pieces[x][y]), "{"+x+" , "+y+"}", "{"+x1+" , "+y1+"}", capturedPiece);
                     currentPiece(pieces[x][y], x, y).makePath(x, y, x1, y1);
                     count=count+1;
@@ -113,6 +120,8 @@ public class Board {
                         showBoard();
                         continue;
                     }
+
+
                 }
 
                 if ((currentPiece(pieces[x][y], x, y).isCorrectMove(x1, y1)) && (!correctPiecesToPlay(pieces[x][y], currentPlayer))) {

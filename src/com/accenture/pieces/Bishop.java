@@ -1,5 +1,6 @@
 package com.accenture.pieces;
 
+import com.accenture.board.Board;
 import com.accenture.game.PieceType;
 import com.accenture.game.PlayerColor;
 
@@ -92,7 +93,7 @@ public class Bishop  extends Piece{
      * @param endX - конечное местоположение X
      * @param endY - конечное местоположение Y
      * */
-    private boolean bishopCanCapture(int endX, int endY) {
+    public boolean bishopCanCapture(int endX, int endY) {
 
        if (currentPlayer.equals(PlayerColor.WHITE.getPlayer()) && pieces[endX][endY] == toUpperCase(PieceType.getPiece(pieces[endX][endY]))
                && pieces[endX][endY] != (int)'\u0000' && bishopJumped(endX, endY)==false){
@@ -112,6 +113,7 @@ public class Bishop  extends Piece{
      * */
     @Override
     public void makePath(int startX, int startY, int endX, int endY) {
+
         pieces[endX][endY] = pieces[x][y];
         pieces[this.x][this.y] = (int) '\u0000';
     }

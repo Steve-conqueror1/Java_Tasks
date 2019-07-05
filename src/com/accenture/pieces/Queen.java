@@ -1,6 +1,10 @@
 package com.accenture.pieces;
 
+import com.accenture.board.Board;
+import com.accenture.game.PieceType;
+
 import static com.accenture.board.Board.pieces;
+import static java.lang.Character.toLowerCase;
 
 public class Queen extends Piece {
 
@@ -29,7 +33,9 @@ public class Queen extends Piece {
      * */
     @Override
     public void makePath(int startX, int startY, int endX, int endY) {
+
         pieces[endX][endY] = pieces[x][y];
         pieces[this.x][this.y] = (int) '\u0000';
     }
+
 }

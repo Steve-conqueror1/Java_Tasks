@@ -1,5 +1,6 @@
 package com.accenture.pieces;
 
+import com.accenture.board.Board;
 import com.accenture.game.PieceType;
 import com.accenture.game.PlayerColor;
 
@@ -26,8 +27,7 @@ public class Knight  extends Piece{
 
        if((Math.abs(endY-this.y)==2 && Math.abs(endX-this.x)==1) || (Math.abs(endX-this.x) == 2
                && Math.abs(endY-this.y)==1) && pieces[endX][endY]==(int)'\u0000'){
-           System.out.println("Knight moved correctly");
-           return true;
+              return true;
        }
        return false;
     }
@@ -57,7 +57,8 @@ public class Knight  extends Piece{
      * */
     @Override
     public void makePath(int startX, int startY, int endX, int endY) {
-            pieces[endX][endY] = pieces[x][y];
-            pieces[this.x][this.y] = (int) '\u0000';
+
+        pieces[endX][endY] = pieces[x][y];
+        pieces[this.x][this.y] = (int) '\u0000';
     }
 }

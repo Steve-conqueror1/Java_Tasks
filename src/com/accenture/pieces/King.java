@@ -52,6 +52,7 @@ public class King extends Piece {
      * */
     @Override
     public void makePath(int startX, int startY, int endX, int endY) {
+
         pieces[endX][endY] = pieces[x][y];
         pieces[this.x][this.y] = (int) '\u0000';
     }

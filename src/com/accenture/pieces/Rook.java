@@ -44,7 +44,7 @@ public class Rook extends Piece {
      * @param endX - конец х координат
      * @param endY - конец y координат
      * */
-    public boolean rookCanCapture(int endX, int endY){
+    public  boolean rookCanCapture(int endX, int endY){
 
         if ((currentPlayer.equals(PlayerColor.WHITE.getPlayer()))
                 && (pieces[endX][endY]==toUpperCase(PieceType.getPiece(toLowerCase(pieces[endX][endY]))))
@@ -135,7 +135,8 @@ public class Rook extends Piece {
    */
     @Override
     public void makePath(int startX, int startY, int endX, int endY) {
-            pieces[endX][endY] = pieces[x][y];
+
+        pieces[endX][endY] = pieces[x][y];
             pieces[this.x][this.y] = (int) '\u0000';
     }
 }
