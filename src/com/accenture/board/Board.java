@@ -10,6 +10,7 @@ import com.accenture.repository.ChessGameRepository;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import static com.accenture.pieces.King.kingIsAlive;
 import static java.lang.Character.toLowerCase;
 import static java.lang.Character.toUpperCase;
 
@@ -85,6 +86,7 @@ public class Board {
                 System.out.println("\t\t\tИграет "+PlayerColor.BLACK.getPlayer()+ "\n");
             }
 
+
             try {
                 System.out.print("\t\t\tвведите координату x фигуры, которую вы хотите переместить  x = ");
                 x = in.nextInt();
@@ -103,8 +105,14 @@ public class Board {
                     ChessGameRepository.dbAccess(count+1, currentPlayer, PieceType.getPieceByName(pieces[x][y]), "{"+x+" , "+y+"}", "{"+x1+" , "+y1+"}", capturedPiece);
                     currentPiece(pieces[x][y], x, y).makePath(x, y, x1, y1);
                     count=count+1;
-                    showBoard();
-                    continue;
+
+                    if (!kingIsAlive(currentPlayer)){
+                        System.out.println("\t\t\t\t--------------------поздравления !!!!!!!!!!  " +currentPlayer+ " выиграл игру------------------------");
+                        return;
+                    }else{
+                        showBoard();
+                        continue;
+                    }
                 }
 
                 if ((currentPiece(pieces[x][y], x, y).isCorrectMove(x1, y1)) && (!correctPiecesToPlay(pieces[x][y], currentPlayer))) {

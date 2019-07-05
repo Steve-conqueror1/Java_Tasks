@@ -24,21 +24,19 @@ public class Pawn extends Piece {
     @Override
     public boolean isCorrectMove(int endX, int endY) {
         if (pawnCanCapture(x, y, endX, endY)){
-            System.out.println(" its a capture ");
+
             return true;
         }
 
         if ((countA==0 && Board.currentPlayer.equals(PlayerColor.WHITE.getPlayer())
                 && (pieces[x][y]==PieceType.getPiece(pieces[x][y]))) && ((Math.abs(endY-this.y)==1 && (endX==this.x))|| (Math.abs(endY-this.y)==2 && (endX==this.x)))){
             countA =countA+1;
-            System.out.println(" countA == 0");
 
             return true;
         }
 
         if ((countA > 0 && Board.currentPlayer.equals(PlayerColor.WHITE.getPlayer()))
                 && (pieces[x][y]==PieceType.getPiece(pieces[x][y])) && (Math.abs(endY-this.y)==1 && endX == this.x)){
-            System.out.println(" countA > 0  ");
 
             return true;
         }
@@ -46,13 +44,12 @@ public class Pawn extends Piece {
         if ((countB==0 && Board.currentPlayer.equals(PlayerColor.BLACK.getPlayer())
                 && (pieces[x][y]==toUpperCase(PieceType.getPiece(toLowerCase(pieces[x][y])))) && ((Math.abs(endY-this.y)==1 && endX == this.x)|| (Math.abs(endY-this.y)==2 && endX==this.x)))){
             countB =countB+1;
-            System.out.println(" countB==0  ");
             return true;
         }
 
         if ( countB > 0 && Board.currentPlayer.equals(PlayerColor.BLACK.getPlayer())
                 && (pieces[x][y]==toUpperCase(PieceType.getPiece(toLowerCase(pieces[x][y])))) && (Math.abs(endY-this.y)==1 && endX==this.x)){
-            System.out.println(" countB > 0  ");
+
             return true;
         }
         return false;

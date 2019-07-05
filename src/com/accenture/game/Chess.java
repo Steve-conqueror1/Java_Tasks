@@ -2,6 +2,8 @@ package com.accenture.game;
 
 import com.accenture.board.Board;
 
+import static com.accenture.pieces.King.kingIsAlive;
+
 /**
  * Chess - это основной класс программы
  * */
