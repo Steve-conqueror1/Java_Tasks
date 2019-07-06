@@ -14,12 +14,18 @@ import static com.accenture.pieces.King.kingIsAlive;
 import static java.lang.Character.toLowerCase;
 import static java.lang.Character.toUpperCase;
 
+/**
+ * этот класс расставляет фигуры на доске
+ * Метод play () также определен в этом классе
+ * */
 public class Board {
 
     public static char[][] pieces = new char[8][8];
      public static String capturedPiece;
 
+     //организация белых фигур (представленных маленькими буквами) на доске
     public static void fillBoardWithWhitePieces(){
+
         pieces[0][0]=PieceType.ROOK.getPieceCharToRead();
         pieces[1][0]=PieceType.KNIGHT.getPieceCharToRead();
         pieces[2][0]=PieceType.BISHOP.getPieceCharToRead();
@@ -37,7 +43,9 @@ public class Board {
         }
     }
 
+    // организация черных фигур (изображенных заглавными буквами) на доске
     public static void fillBoardWithBlackPieces(){
+
         pieces[0][7]= toUpperCase(PieceType.ROOK.getPieceCharToRead());
         pieces[1][7]=toUpperCase(PieceType.KNIGHT.getPieceCharToRead());
         pieces[2][7]=toUpperCase(PieceType.BISHOP.getPieceCharToRead());
@@ -55,6 +63,7 @@ public class Board {
         }
     }
 
+    // этот метод показывает все фигуры на доске
     public static void showBoard(){
         System.out.println("\n\t\t\t\tИГРОК--A....................................................ИГРОК--B");
         for (int i=0; i<pieces.length; i++){
@@ -68,12 +77,13 @@ public class Board {
 
     public static String currentPlayer;
 
+    // этот метод позволяет игроку сделать ход
     public static void play(){
+
         Scanner in;
         int x, x1= 0;
         int y, y1 =0;
         int count=0;
-
 
         while (true) {
             in = new Scanner(System.in);
@@ -151,7 +161,6 @@ public class Board {
             }
         }
     }
-
 
     /**
      * эта функция возвращает true:
